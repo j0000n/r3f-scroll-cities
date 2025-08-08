@@ -1,0 +1,118 @@
+:root {
+  --bg: #ffd6e7; /* baby pink */
+  --ink: #111;
+  --ink-dim: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.app {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hdr {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  font-size: clamp(20px, 3.5vw, 48px);
+  line-height: 1.1;
+}
+
+.sub {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  font-size: clamp(12px, 1.8vw, 18px);
+  color: var(--ink-dim);
+}
+
+.factWrap {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  max-width: min(40ch, 38vw);
+  text-align: right;
+}
+
+.factWrap h2 {
+  margin: 0 0 8px 0;
+  font-size: clamp(14px, 2.2vw, 22px);
+}
+
+.factWrap p {
+  margin: 0;
+  font-size: clamp(12px, 2vw, 18px);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .hdr {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .factWrap {
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    max-width: 82vw;
+  }
+}
+
+.panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  width: min(280px, 42vw);
+  color: #111;
+  pointer-events: auto;
+  font-size: 13px;
+}
+
+.panel .row { display: grid; grid-template-columns: 80px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
+.panel .row.title { grid-template-columns: 1fr; font-weight: 700; margin-bottom: 6px; }
+.panel .row.buttons { grid-template-columns: 1fr 1fr; gap: 8px; }
+.panel label { color: #444; }
+.panel input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+}
+.panel button {
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: #f7f7f7;
+  color: #111;
+  cursor: pointer;
+}
+.panel .hint { font-size: 11px; color: #666; margin-top: 4px; }
